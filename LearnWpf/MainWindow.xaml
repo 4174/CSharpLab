@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="260,111,0,0" TextWrapping="Wrap" Text="TextBox"
+                 VerticalAlignment="Center" Width="120" Background="Azure"/>
+        <Button Content="Click Me" Height="50" Width="50" Click="Button_Click"/>
+        <Ellipse Height="50" Width="100" Fill="DarkGoldenrod" Margin="555,84,137,285"/>
     </Grid>
 </Window>
