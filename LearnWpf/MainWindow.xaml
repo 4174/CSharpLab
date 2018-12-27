@@ -6,10 +6,21 @@
         xmlns:local="clr-namespace:LearnWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <local:GenderColorConverter x:Key="GenderColorConverter"/>
+    </Window.Resources>
+    
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="260,111,0,0" TextWrapping="Wrap" Text="TextBox"
-                 VerticalAlignment="Center" Width="120" Background="Azure"/>
-        <Button Content="Click Me" Height="50" Width="50" Click="Button_Click"/>
-        <Ellipse Height="50" Width="100" Fill="DarkGoldenrod" Margin="555,84,137,285"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="{Binding Male}"
+                       Background="{Binding Male.Gender, Converter={StaticResource GenderColorConverter}}"/>
+            <TextBlock Text="{Binding Female}"
+                       Background="{Binding Female.Gender, Converter={StaticResource GenderColorConverter}}"/>
+        </StackPanel>
+        <!--<TextBox x:Name="textBox" Height="23" Margin="1,1,1,1" TextWrapping="Wrap" Text="TextBox"
+                 Width="120" Background="Azure"/>
+        <Button Content="Click Me" Height="50" Width="50" Click="Button_Click" Margin="732,65,10,304"/>
+        <Ellipse Height="50" Width="100" Fill="DarkGoldenrod" Margin="682,10,10,359"/>-->
     </Grid>
 </Window>

@@ -20,14 +20,35 @@ namespace LearnWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Person Male { get; set; }
+        public Person Female { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Male = new Person()
+            {
+                FirstName = "Joe",
+                LastName = "Smith",
+                Age = 52,
+                Gender = Gender.Male
+            };
+
+            Female = new Person()
+            {
+                FirstName = "Jane",
+                LastName = "Doe",
+                Age = 40,
+                Gender = Gender.Female
+            };
+
+            this.DataContext = this;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }
