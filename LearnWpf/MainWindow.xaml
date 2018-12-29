@@ -10,17 +10,34 @@
     <Window.Resources>
         <local:GenderColorConverter x:Key="GenderColorConverter"/>
     </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Edit">
+                <MenuItem Command="Copy"/>
+                <MenuItem Command="{x:Static local:FormatCommands.SetBackground}"/>
+            </MenuItem>
+        </Menu>
+        <RichTextBox>
+            <RichTextBox.CommandBindings>
+                <CommandBinding Command="{x:Static local:FormatCommands.SetBackground}"
+                                Executed="CommandBinding_Executed"
+                                CanExecute="CommandBinding_CanExecute"/>
+            </RichTextBox.CommandBindings>
+        </RichTextBox>
+    </DockPanel>
     
-    <Grid>
+    
+<!--    <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="{Binding Male}"
                        Background="{Binding Male.Gender, Converter={StaticResource GenderColorConverter}}"/>
             <TextBlock Text="{Binding Female}"
                        Background="{Binding Female.Gender, Converter={StaticResource GenderColorConverter}}"/>
         </StackPanel>
-        <!--<TextBox x:Name="textBox" Height="23" Margin="1,1,1,1" TextWrapping="Wrap" Text="TextBox"
+        <TextBox x:Name="textBox" Height="23" Margin="1,1,1,1" TextWrapping="Wrap" Text="TextBox"
                  Width="120" Background="Azure"/>
         <Button Content="Click Me" Height="50" Width="50" Click="Button_Click" Margin="732,65,10,304"/>
-        <Ellipse Height="50" Width="100" Fill="DarkGoldenrod" Margin="682,10,10,359"/>-->
-    </Grid>
+        <Ellipse Height="50" Width="100" Fill="DarkGoldenrod" Margin="682,10,10,359"/>
+    </Grid>-->
 </Window>

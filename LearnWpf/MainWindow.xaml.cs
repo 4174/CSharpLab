@@ -50,5 +50,23 @@ namespace LearnWpf
         private void Button_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            RichTextBox richTextBox = (RichTextBox)sender;
+            richTextBox.Selection.ApplyPropertyValue(TextElement.BackgroundProperty,
+                Brushes.Green);
+
+        }
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            RichTextBox richTextBox = (RichTextBox)sender;
+
+            if (richTextBox.Selection.IsEmpty)
+                e.CanExecute = false;
+            else
+                e.CanExecute = true;
+        }
     }
 }
