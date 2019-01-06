@@ -6,11 +6,34 @@
         xmlns:local="clr-namespace:LearnWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     <Window.Resources>
-        <local:GenderColorConverter x:Key="GenderColorConverter"/>
+        <!--<local:GenderColorConverter x:Key="GenderColorConverter"/>-->
+        <Style x:Key="LabelStyle">
+            <!--<Setter Property="IsEnabled" Value="False"/>-->
+            <!--<Setter Property="TextBlock.IsEnabled" Value="False"/>-->
+            <Setter Property="TextBlock.FontSize" Value="20"/>
+        </Style>
     </Window.Resources>
 
+    <StackPanel>
+        <!--
+        <TextBlock Text="One Way" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding OneWayValue, Mode=OneWay}"/>
+        <TextBlock Text="One Time" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding OneWayValue, Mode=OneTime}"/>
+        <TextBlock Text="One Way Value Source" Style="{StaticResource LabelStyle}"/>
+        <TextBox Text="{Binding OneWayValue, UpdateSourceTrigger=PropertyChanged}"/>
+        -->
+        <TextBlock Text="Two Way" Style="{StaticResource LabelStyle}"/>
+        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+    </StackPanel>
+    
+    <!--
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Edit">
@@ -25,8 +48,7 @@
                                 CanExecute="CommandBinding_CanExecute"/>
             </RichTextBox.CommandBindings>
         </RichTextBox>
-    </DockPanel>
-    
+    </DockPanel>-->
     
 <!--    <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

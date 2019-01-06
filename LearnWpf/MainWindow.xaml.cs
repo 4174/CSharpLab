@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,9 +43,6 @@ namespace LearnWpf
                 Age = 40,
                 Gender = Gender.Female
             };
-
-            this.DataContext = this;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
