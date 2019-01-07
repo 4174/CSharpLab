@@ -18,29 +18,22 @@
         </Style>
     </Window.Resources>
 
-    <StackPanel>
-        <!--
-        <TextBlock Text="One Way" Style="{StaticResource LabelStyle}"/>
-        <TextBlock Text="{Binding OneWayValue, Mode=OneWay}"/>
-        <TextBlock Text="One Time" Style="{StaticResource LabelStyle}"/>
-        <TextBlock Text="{Binding OneWayValue, Mode=OneTime}"/>
-        <TextBlock Text="One Way Value Source" Style="{StaticResource LabelStyle}"/>
-        <TextBox Text="{Binding OneWayValue, UpdateSourceTrigger=PropertyChanged}"/>
-        -->
-        <TextBlock Text="Two Way" Style="{StaticResource LabelStyle}"/>
-        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        
-    </StackPanel>
     
-    <!--
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Edit">
                 <MenuItem Command="Copy"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="{x:Static ApplicationCommands.Paste}"/>
+                <MenuItem Command="ToggleBold"/>
+                <MenuItem Command="ToggleItalic"/>
+                <!--
                 <MenuItem Command="{x:Static local:FormatCommands.SetBackground}"/>
+                -->
             </MenuItem>
         </Menu>
+        <RichTextBox/>
+        <!--
         <RichTextBox>
             <RichTextBox.CommandBindings>
                 <CommandBinding Command="{x:Static local:FormatCommands.SetBackground}"
@@ -48,9 +41,26 @@
                                 CanExecute="CommandBinding_CanExecute"/>
             </RichTextBox.CommandBindings>
         </RichTextBox>
-    </DockPanel>-->
+        -->
+    </DockPanel>
     
-<!--    <Grid>
+    <!--
+    <StackPanel>
+        <TextBlock Text="One Way" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding OneWayValue, Mode=OneWay}"/>
+        <TextBlock Text="One Time" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding OneWayValue, Mode=OneTime}"/>
+        <TextBlock Text="One Way Value Source" Style="{StaticResource LabelStyle}"/>
+        <TextBox Text="{Binding OneWayValue, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Text="Two Way" Style="{StaticResource LabelStyle}"/>
+        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
+    -->
+
+    <!--
+    <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="{Binding Male}"
                        Background="{Binding Male.Gender, Converter={StaticResource GenderColorConverter}}"/>
