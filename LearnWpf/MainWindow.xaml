@@ -21,21 +21,49 @@
             <Setter Property="ContentControl.Content" Value="Default Text"/>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Wingdings"/>
         </Style>
         <Style TargetType="TextBlock"
                x:Key="TextBlockStyle">
             <Setter Property="Foreground" Value="Green"/>
-        </Style>        
+        </Style>
+        <Style x:Key="BaseStyle"
+               BasedOn="{StaticResource {x:Type TextBlock}}"
+               TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="ChildStyle"
+               BasedOn="{StaticResource BaseStyle}"
+               TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Green"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="GrandChildStyle"
+               BasedOn="{StaticResource ChildStyle}"
+               TargetType="TextBlock">
+            <Setter Property="Background" Value="Yellow"/>
+        </Style>
     </Window.Resources>
 
+    <StackPanel>
+        <TextBlock Text="No Explicit Style 0"/>
+        <TextBlock Style="{StaticResource BaseStyle}"
+                   Text="Base Style 0"/>
+        <TextBlock Style="{StaticResource ChildStyle}"
+                   Text="Child Style 0"/>
+        <TextBlock Style="{StaticResource GrandChildStyle}"
+                   Text="Grand Child Style 0"/>
+    </StackPanel>
+    
+    <!--
     <StackPanel>
         <TextBlock Text="Hello World" FontWeight="Normal"/>
         <TextBlock Text="Hello again" FontSize="15"/>
         <TextBlock Text="Hello one more time" Foreground="Blue" Style="{StaticResource TextBlockStyle}"/>
         <TextBlock Text="Hello one more time" Style="{StaticResource TextBlockStyle}"/>
     </StackPanel>
+    -->
     
     <!--
     <StackPanel>
