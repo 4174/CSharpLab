@@ -28,6 +28,14 @@ namespace LearnWpf
         {
             InitializeComponent();
 
+            //this.contentControl.Content = new Person
+            //{
+            //    FirstName = "Ben",
+            //    LastName = "Frank",
+            //    Age = 82
+            //};
+
+            /*
             Male = new Person()
             {
                 FirstName = "Joe",
@@ -43,6 +51,7 @@ namespace LearnWpf
                 Age = 40,
                 Gender = Gender.Female
             };
+            */
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
