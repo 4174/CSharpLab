@@ -20,8 +20,24 @@
             <Setter Property="Control.Foreground" Value="Green"/>
             <Setter Property="ContentControl.Content" Value="Default Text"/>
         </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="TextBlockStyle">
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>        
     </Window.Resources>
 
+    <StackPanel>
+        <TextBlock Text="Hello World" FontWeight="Normal"/>
+        <TextBlock Text="Hello again" FontSize="15"/>
+        <TextBlock Text="Hello one more time" Foreground="Blue" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Text="Hello one more time" Style="{StaticResource TextBlockStyle}"/>
+    </StackPanel>
+    
+    <!--
     <StackPanel>
         <Button Height="50" Width="150"
                 Style="{StaticResource CommonButtonStyle}"/>
@@ -31,6 +47,7 @@
                      Style="{StaticResource CommonButtonStyle}"/>
         <TextBox Style="{StaticResource CommonButtonStyle}"/>
     </StackPanel>
+    -->
     
     <!--    
     <DockPanel>
