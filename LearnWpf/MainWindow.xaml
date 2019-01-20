@@ -10,7 +10,7 @@
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
-    
+
     <Window.Resources>
         <DataTemplate x:Key="PersonTemplate">
             <StackPanel>
@@ -22,11 +22,36 @@
     </Window.Resources>
 
     <StackPanel>
-        <ContentControl Name="contentControl"
+        <StackPanel>
+
+            <ContentControl Name="contentControl"
                         Content="{Binding PersonOne}"
                         ContentTemplate="{StaticResource PersonTemplate}"/>
-        <ContentControl Name="contentControl2"
+            <ContentControl Name="contentControl2"
                         Content="{Binding PersonOne}"
                         ContentTemplate="{StaticResource PersonTemplate}"/>
+        </StackPanel>
+        <StackPanel>
+            <Button>
+                <Button.Content>
+                    <!--<StackPanel HorizontalAlignment="Center"
+                             VerticalAlignment="Center">-->
+                    <Grid>
+                        <Ellipse Fill="Yellow" Height="45" Width="75"/>
+                        <TextBlock FontSize="20" FontWeight="Bold" Text="CLICK" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <!--</StackPanel>-->
+                </Button.Content>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Height="50" Width="150" Fill="Red"/>
+                            <ContentPresenter/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <TextBlock Text="{Binding TextBlockForTest}"/>
+        </StackPanel>
     </StackPanel>
 </Window>

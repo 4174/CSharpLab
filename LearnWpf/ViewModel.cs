@@ -14,6 +14,8 @@ namespace LearnWpf
 
         public Person PersonOne { get; set; }
 
+        public string TextBlockForTest { get; set; } = "...";
+
         public ViewModel()
         {
             PersonOne = new Person
@@ -23,6 +25,8 @@ namespace LearnWpf
                 FirstName = "Jane",
                 LastName = "Doe"
             };
+
+            ///TextBlockForTest = "!!!";
         }
     }
 }
