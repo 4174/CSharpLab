@@ -6,147 +6,27 @@
         xmlns:local="clr-namespace:LearnWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
+
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
+    
     <Window.Resources>
-        <!--<local:GenderColorConverter x:Key="GenderColorConverter"/>-->
-        <!--
-        <Style x:Key="LabelStyle">-->
-            <!--<Setter Property="IsEnabled" Value="False"/>-->
-            <!--<Setter Property="TextBlock.IsEnabled" Value="False"/>-->
-            <!--<Setter Property="TextBlock.FontSize" Value="20"/>
-        </Style>
-        <Style x:Key="CommonButtonStyle">
-            <Setter Property="Control.Foreground" Value="Green"/>
-            <Setter Property="ContentControl.Content" Value="Default Text"/>
-        </Style>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Wingdings"/>
-        </Style>
-        <Style TargetType="TextBlock"
-               x:Key="TextBlockStyle">
-            <Setter Property="Foreground" Value="Green"/>
-        </Style>
-        <Style x:Key="BaseStyle"
-               BasedOn="{StaticResource {x:Type TextBlock}}"
-               TargetType="TextBlock">
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-        </Style>
-        <Style x:Key="ChildStyle"
-               BasedOn="{StaticResource BaseStyle}"
-               TargetType="TextBlock">
-            <Setter Property="Foreground" Value="Green"/>
-            <Setter Property="FontSize" Value="15"/>
-        </Style>
-        <Style x:Key="GrandChildStyle"
-               BasedOn="{StaticResource ChildStyle}"
-               TargetType="TextBlock">
-            <Setter Property="Background" Value="Yellow"/>
-        </Style>-->
+        <DataTemplate x:Key="PersonTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding FirstName}" FontSize="20"
+                           FontStyle="Italic"/>
+                <TextBlock Text="{Binding Age}" FontSize="10"/>
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
 
-    <Grid>
+    <StackPanel>
         <ContentControl Name="contentControl"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-            <ContentControl.Content>
-                <local:Person FirstName="Joe" LastName="Smith" Age="55"/>
-            </ContentControl.Content>
-        </ContentControl>
-    </Grid>
-    
-    
-    <!--
-    <StackPanel>
-        <TextBlock Text="No Explicit Style 0"/>
-        <TextBlock Style="{StaticResource BaseStyle}"
-                   Text="Base Style 0"/>
-        <TextBlock Style="{StaticResource ChildStyle}"
-                   Text="Child Style 0"/>
-        <TextBlock Style="{StaticResource GrandChildStyle}"
-                   Text="Grand Child Style 0"/>
+                        Content="{Binding PersonOne}"
+                        ContentTemplate="{StaticResource PersonTemplate}"/>
+        <ContentControl Name="contentControl2"
+                        Content="{Binding PersonOne}"
+                        ContentTemplate="{StaticResource PersonTemplate}"/>
     </StackPanel>
-    -->
-    
-    <!--
-    <StackPanel>
-        <TextBlock Text="Hello World" FontWeight="Normal"/>
-        <TextBlock Text="Hello again" FontSize="15"/>
-        <TextBlock Text="Hello one more time" Foreground="Blue" Style="{StaticResource TextBlockStyle}"/>
-        <TextBlock Text="Hello one more time" Style="{StaticResource TextBlockStyle}"/>
-    </StackPanel>
-    -->
-    
-    <!--
-    <StackPanel>
-        <Button Height="50" Width="150"
-                Style="{StaticResource CommonButtonStyle}"/>
-        <ToggleButton Content="Toggle"
-                Style="{StaticResource CommonButtonStyle}"/>
-        <RadioButton Content="Radio"
-                     Style="{StaticResource CommonButtonStyle}"/>
-        <TextBox Style="{StaticResource CommonButtonStyle}"/>
-    </StackPanel>
-    -->
-    
-    <!--    
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Edit">
-                <MenuItem Command="Copy"/>
-                <MenuItem Command="ApplicationCommands.Cut"/>
-                <MenuItem Command="{x:Static ApplicationCommands.Paste}"/>
-                <MenuItem Command="ToggleBold"/>
-                <MenuItem Command="ToggleItalic"/>
-    -->
-                <!--
-                <MenuItem Command="{x:Static local:FormatCommands.SetBackground}"/>
-                -->
-    <!--
-            </MenuItem>
-        </Menu>
-        <RichTextBox/>
-    -->
-        <!--
-        <RichTextBox>
-            <RichTextBox.CommandBindings>
-                <CommandBinding Command="{x:Static local:FormatCommands.SetBackground}"
-                                Executed="CommandBinding_Executed"
-                                CanExecute="CommandBinding_CanExecute"/>
-            </RichTextBox.CommandBindings>
-        </RichTextBox>
-        -->
-    <!--
-    </DockPanel>
-    -->
-    <!--
-    <StackPanel>
-        <TextBlock Text="One Way" Style="{StaticResource LabelStyle}"/>
-        <TextBlock Text="{Binding OneWayValue, Mode=OneWay}"/>
-        <TextBlock Text="One Time" Style="{StaticResource LabelStyle}"/>
-        <TextBlock Text="{Binding OneWayValue, Mode=OneTime}"/>
-        <TextBlock Text="One Way Value Source" Style="{StaticResource LabelStyle}"/>
-        <TextBox Text="{Binding OneWayValue, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock Text="Two Way" Style="{StaticResource LabelStyle}"/>
-        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Text="{Binding TwoWayValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-    </StackPanel>
-    -->
-
-    <!--
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="{Binding Male}"
-                       Background="{Binding Male.Gender, Converter={StaticResource GenderColorConverter}}"/>
-            <TextBlock Text="{Binding Female}"
-                       Background="{Binding Female.Gender, Converter={StaticResource GenderColorConverter}}"/>
-        </StackPanel>
-        <TextBox x:Name="textBox" Height="23" Margin="1,1,1,1" TextWrapping="Wrap" Text="TextBox"
-                 Width="120" Background="Azure"/>
-        <Button Content="Click Me" Height="50" Width="50" Click="Button_Click" Margin="732,65,10,304"/>
-        <Ellipse Height="50" Width="100" Fill="DarkGoldenrod" Margin="682,10,10,359"/>
-    </Grid>-->
 </Window>
